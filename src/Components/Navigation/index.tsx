@@ -9,20 +9,32 @@
  */
 
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Text, View, StyleSheet} from 'react-native';
 import Home from '../../Pages/Home';
+import Edit from '../../Pages/Edit';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { Header } from 'react-native/Libraries/NewAppScreen';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-const Navigation: () => JSX.Element = () => {
+
+
+
+const Navigation: any = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-      </Stack.Navigator>
+      <Tab.Navigator screenOptions={{
+        header: () => null,
+      }}>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Edit" component={Edit}/>
+      </Tab.Navigator>
     </NavigationContainer>
+
   );
 };
+
+const styles = StyleSheet.create({});
 
 export default Navigation;
