@@ -9,15 +9,17 @@
  */
 
 import * as React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import Card from '../../Components/Card';
 
 const Home: () => JSX.Element = () => {
   return (
     <View style={styles.mainView}>
-      <Image
-        source={require('../../Images/bocks.png')}
-        style={styles.imageStyle}
-      />
+      <Card header="Name" text="Jaden" />
+      <Card header="Gender" text="Male" />
+      <Card header="Pronouns" text="He/Him" />
+      <Card header="Status" text="Taken" />
+
     </View>
   );
 };
@@ -38,9 +40,12 @@ const styles = StyleSheet.create({
 
   imageStyle: {
     height: 150,
-    width: '98%',
+    width: '100%',
     borderRadius: 30,
     overflow: 'hidden',
+    marginBottom: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
