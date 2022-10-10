@@ -12,7 +12,7 @@ export default class LocalStorage {
 
   public async getData(getKey: string): Promise<string | null> {
     try {
-      let res = await AsyncStorage.getItem(getKey);
+      let res = await AsyncStorage.getItem(`@${getKey}`);
       return res;
     } catch (err) {
       return `Could not get data: ${err}`;
