@@ -12,16 +12,8 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import Navigation from './Components/Navigation';
 
-
 const App: () => JSX.Element = () => {
-  
-
-  return (
-    <Navigation />
-  );
+  return <Navigation />;
 };
-
-
-
 
 export default App;

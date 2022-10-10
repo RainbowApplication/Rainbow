@@ -19,7 +19,6 @@ const Home: () => JSX.Element = () => {
       <Card header="Gender" text="Male" />
       <Card header="Pronouns" text="He/Him" />
       <Card header="Status" text="Taken" />
-
     </View>
   );
 };

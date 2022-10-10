@@ -13,25 +13,21 @@ import {Text, View, StyleSheet} from 'react-native';
 import Home from '../../Pages/Home';
 import Edit from '../../Pages/Edit';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import { Header } from 'react-native/Libraries/NewAppScreen';
+import {NavigationContainer} from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
-
-
-
-const Navigation: any = () => {
+const Navigation: () => JSX.Element = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{
-        header: () => null,
-      }}>
+      <Tab.Navigator
+        screenOptions={{
+          header: () => null,
+        }}>
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Edit" component={Edit}/>
+        <Tab.Screen name="Edit" component={Edit} />
       </Tab.Navigator>
     </NavigationContainer>
-
   );
 };
 
