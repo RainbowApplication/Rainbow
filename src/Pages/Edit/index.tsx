@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Text, View, StyleSheet, TextInput} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import LocalStorage from '../../Helpers/LocalStorage';
 
 // https://react-native-async-storage.github.io/async-storage/docs/usage
 
@@ -8,6 +8,14 @@ interface EditProps {}
 
 const Edit: React.FC<EditProps> = ({}: EditProps) => {
   const [text, setText] = React.useState('');
+
+  const ls = new LocalStorage();
+
+
+  let res = ls.getAllData();
+
+  console.log(res.then((data) => console.log(data)));
+  console.log('hi');
 
 
   return (
@@ -17,6 +25,9 @@ const Edit: React.FC<EditProps> = ({}: EditProps) => {
         value={text}
         onChangeText={setText}
       />
+      <Text>
+        hi
+      </Text>
     </View>
   );
 };
