@@ -27,4 +27,13 @@ export default class LocalStorage {
       return `Could not get all data: ${err}`;
     }
   }
+
+  public async deleteData(key: string): Promise<string | void> {
+    try {
+      let res = await AsyncStorage.removeItem(key);
+      return res;
+    } catch (err) {
+      return `Could not remove ${key}: ${err}`;
+    }
+  }
 }

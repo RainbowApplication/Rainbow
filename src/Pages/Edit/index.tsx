@@ -8,26 +8,23 @@ interface EditProps {}
 
 const Edit: React.FC<EditProps> = ({}: EditProps) => {
   const [text, setText] = React.useState('');
-
   const ls = new LocalStorage();
-
-  ls.setData('monke', 'test');
-  let res = ls.getAllData();
-
-  console.log(res.then(data => console.log(data)));
-
-  let getMonke = ls.getData('@monke');
-
-  console.log(getMonke.then(data => console.log(data)));
 
   return (
     <View style={styles.ViewStyle}>
       <TextInput
         style={styles.InputStyles}
         value={text}
-        onChangeText={setText}
+        onSubmitEditing={() => {
+          ls.setData('Gender', text);
+          let j = ls.getData('Gender');
+          j.then(data => console.log(data));
+        }}
+        onChangeText={newText => {
+          setText(newText);
+        }}
       />
-      <Text>hi</Text>
+      <Text>Edit your Gender!</Text>
     </View>
   );
 };
