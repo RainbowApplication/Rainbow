@@ -11,12 +11,10 @@ const Edit: React.FC<EditProps> = ({}: EditProps) => {
 
   const ls = new LocalStorage();
 
-
   let res = ls.getAllData();
 
-  console.log(res.then((data) => console.log(data)));
+  console.log(res.then(data => console.log(data)));
   console.log('hi');
-
 
   return (
     <View style={styles.ViewStyle}>
@@ -25,9 +23,7 @@ const Edit: React.FC<EditProps> = ({}: EditProps) => {
         value={text}
         onChangeText={setText}
       />
-      <Text>
-        hi
-      </Text>
+      <Text>hi</Text>
     </View>
   );
 };

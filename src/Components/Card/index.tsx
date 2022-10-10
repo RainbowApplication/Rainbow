@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({text, header}: CardProps) => {
       style={styles.ImageStyles}
       source={require('../../Images/bocks.png')}>
       <Header header={header} />
-      <Text style={{marginTop: 10}}>{text}</Text>
+      <Text style={styles.TextStyles}>{text}</Text>
     </ImageBackground>
   );
 };
@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  TextStyles: {
+    marginTop: 10,
   },
 });
 

@@ -15,10 +15,10 @@ import Card from '../../Components/Card';
 const Home: () => JSX.Element = () => {
   return (
     <View style={styles.mainView}>
-      <Card header="Name" text="Jaden" />
-      <Card header="Gender" text="Male" />
-      <Card header="Pronouns" text="He/Him" />
-      <Card header="Status" text="Taken" />
+      <Card header='Name' text='Jaden' />
+      <Card header='Gender' text='Male' />
+      <Card header='Pronouns' text='He/Him' />
+      <Card header='Status' text='Taken' />
     </View>
   );
 };
