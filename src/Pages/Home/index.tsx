@@ -13,20 +13,28 @@ import {View, StyleSheet} from 'react-native';
 import Card from '../../Components/Card';
 import LocalStorage from '../../Helpers/LocalStorage';
 
-const Home: () => Promise<JSX.Element> = async () => {
+
+async function getGender(ls: LocalStorage) {
+  let retval: string = 'd';
+  await ls.getData('Gender').then(data => {
+    if (data != null) {
+      retval = data;
+    }
+  });
+  return retval;
+}
+
+const Home: () => JSX.Element = () => {
   const ls = new LocalStorage(); // Initializes Local Storage Helper
-  let getGender = await ls.getData('Gender');
-  let gender: string = 'default';
 
-  if (getGender != null) {
-    gender = getGender;
-  }
+  let f = getGender(ls);
 
-
+  console.log(f);
+  
   return (
     <View style={styles.mainView}>
       <Card header='Name' text='Jaden' />
-      <Card header='Gender' text={gender} />
+      <Card header='Gender' text={`${f}`} />
       <Card header='Pronouns' text='He/Him' />
       <Card header='Status' text='Taken' />
     </View>
