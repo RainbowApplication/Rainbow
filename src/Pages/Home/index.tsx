@@ -12,35 +12,39 @@ import * as React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Card from '../../Components/Card';
 import LocalStorage from '../../Helpers/LocalStorage';
+import { useIsFocused } from "@react-navigation/native";
 
 
-async function getGender(ls: LocalStorage) {
-  let retval: string = 'd';
-  await ls.getData('Gender').then(data => {
-    if (data != null) {
-      retval = data;
-    }
-  });
-  return retval;
+// Methods
+async function getGender(ls: LocalStorage, setgender: any) {
+  let data = await ls.getData('Gender');
+  setgender(data);
 }
 
 const Home: () => JSX.Element = () => {
+  // States and Variables
+  const [gender, setgender] = React.useState('Default'); // useEffect hook for
   const ls = new LocalStorage(); // Initializes Local Storage Helper
+  const isFocused = useIsFocused(); // Rerenders every focus
 
-  let f = getGender(ls);
+  // Code
 
-  console.log(f);
-  
+  getGender(ls, setgender);
+
+
+
+  // JSX  
   return (
     <View style={styles.mainView}>
       <Card header='Name' text='Jaden' />
-      <Card header='Gender' text={`${f}`} />
+      <Card header='Gender' text={`${gender}`} />
       <Card header='Pronouns' text='He/Him' />
       <Card header='Status' text='Taken' />
     </View>
   );
 };
 
+// Styles
 const styles = StyleSheet.create({
   mainView: {
     flex: 1,
