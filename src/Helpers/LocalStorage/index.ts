@@ -3,13 +3,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export default class LocalStorage {
 
   private searchForSpecialChars(searchString: string): boolean {
-    console.log(searchString)
     let specialChars: string = "!@#$%^&*()-=+|}{\\;':\"<>,.?~`";
     let isSpecial: boolean = false;
 
     for (let i = 0; i < searchString.length; i++) {
       let char = searchString[i];
-      console.log(char);
       for (var f = 0; f < specialChars.length; f++) {
         if (char == specialChars[f]) {
           isSpecial = true;
