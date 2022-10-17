@@ -1,6 +1,5 @@
 import LocalStorage from '../LocalStorage';
 
-
 // Add filtering on what gets stored
 
 async function getName(ls: LocalStorage, setName: any) {
