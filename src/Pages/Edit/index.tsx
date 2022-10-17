@@ -12,8 +12,6 @@ const Edit: React.FC<EditProps> = ({}: EditProps) => {
   const [pronouns, setPronouns] = React.useState('');
   const [status, setStatus] = React.useState('');
 
-
-
   const ls = new LocalStorage();
 
   return (
@@ -21,32 +19,44 @@ const Edit: React.FC<EditProps> = ({}: EditProps) => {
       <TextInput
         style={styles.InputStyles}
         value={name}
-        onSubmitEditing={() => {ls.setData('Name', name); setName('');}}
-        onChangeText={newText =>  setName(newText)}
+        onSubmitEditing={() => {
+          ls.setData('Name', name);
+          setName('');
+        }}
+        onChangeText={newText => setName(newText)}
       />
       <Text>Edit your Name!</Text>
 
       <TextInput
         style={styles.InputStyles}
         value={gender}
-        onSubmitEditing={() => {ls.setData('Gender', gender); setGender('');}}
-        onChangeText={newText =>  setGender(newText)}
+        onSubmitEditing={() => {
+          ls.setData('Gender', gender);
+          setGender('');
+        }}
+        onChangeText={newText => setGender(newText)}
       />
       <Text>Edit your Gender!</Text>
 
       <TextInput
         style={styles.InputStyles}
         value={pronouns}
-        onSubmitEditing={() => {ls.setData('Pronouns', pronouns); setPronouns('');}}
-        onChangeText={newText =>  setPronouns(newText)}
+        onSubmitEditing={() => {
+          ls.setData('Pronouns', pronouns);
+          setPronouns('');
+        }}
+        onChangeText={newText => setPronouns(newText)}
       />
       <Text>Edit your Pronouns!</Text>
 
       <TextInput
         style={styles.InputStyles}
         value={status}
-        onSubmitEditing={() => {ls.setData('Status', status); setStatus('');}}
-        onChangeText={newText =>  setStatus(newText)}
+        onSubmitEditing={() => {
+          ls.setData('Status', status);
+          setStatus('');
+        }}
+        onChangeText={newText => setStatus(newText)}
       />
       <Text>Edit your Status!</Text>
     </View>

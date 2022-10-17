@@ -7,19 +7,19 @@ async function getName(ls: LocalStorage, setName: any) {
   setName(data);
 }
 
-async function getGender(ls: LocalStorage, setgender: any) {
+async function getGender(ls: LocalStorage, setGender: any) {
   let data = await ls.getData('Gender');
-  setgender(data);
+  setGender(data);
 }
 
-async function getPronouns(ls: LocalStorage, setpronouns: any) {
+async function getPronouns(ls: LocalStorage, setPronouns: any) {
   let data = await ls.getData('Pronouns');
-  setpronouns(data);
+  setPronouns(data);
 }
 
-async function getStatus(ls: LocalStorage, setstatus: any) {
+async function getStatus(ls: LocalStorage, setStatus: any) {
   let data = await ls.getData('Status');
-  setstatus(data);
+  setStatus(data);
 }
 
 export {getName, getGender, getPronouns, getStatus};

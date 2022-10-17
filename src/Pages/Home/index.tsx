@@ -34,7 +34,6 @@ const Home: () => JSX.Element = () => {
   getData.getPronouns(ls, setpronouns);
   getData.getStatus(ls, setstatus);
 
-
   // JSX
   return (
     <View style={styles.mainView}>
