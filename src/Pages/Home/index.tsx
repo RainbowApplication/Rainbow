@@ -11,18 +11,41 @@
 import * as React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Card from '../../Components/Card';
+import LocalStorage from '../../Helpers/LocalStorage';
+import {useIsFocused} from '@react-navigation/native';
+import * as getData from '../../Helpers/getData';
+
+// Methods
 
 const Home: () => JSX.Element = () => {
+  // States and Variables
+  const [name, setname] = React.useState('Default');
+  const [gender, setgender] = React.useState('Default');
+  const [pronouns, setpronouns] = React.useState('Default');
+  const [status, setstatus] = React.useState('Default');
+
+  const ls = new LocalStorage(); // Initializes Local Storage Helper
+
+  // Code
+
+  useIsFocused(); // Rerenders every focus
+  getData.getGender(ls, setgender);
+  getData.getName(ls, setname);
+  getData.getPronouns(ls, setpronouns);
+  getData.getStatus(ls, setstatus);
+
+  // JSX
   return (
     <View style={styles.mainView}>
-      <Card header="Name" text="Jaden" />
-      <Card header="Gender" text="Male" />
-      <Card header="Pronouns" text="He/Him" />
-      <Card header="Status" text="Taken" />
+      <Card header="Name" text={`${name}`} />
+      <Card header="Gender" text={`${gender}`} />
+      <Card header="Pronouns" text={`${pronouns}`} />
+      <Card header="Status" text={`${status}`} />
     </View>
   );
 };
 
+// Styles
 const styles = StyleSheet.create({
   mainView: {
     flex: 1,

@@ -9,7 +9,7 @@
  */
 
 import * as React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {} from 'react-native';
 import Home from '../../Pages/Home';
 import Edit from '../../Pages/Edit';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -30,7 +30,5 @@ const Navigation: () => JSX.Element = () => {
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default Navigation;
