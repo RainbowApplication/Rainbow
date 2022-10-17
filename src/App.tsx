@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import {} from 'react-native';
+import 'react-native';
 import Navigation from './Components/Navigation';
 
 const App: () => JSX.Element = () => {

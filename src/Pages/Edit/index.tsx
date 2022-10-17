@@ -20,6 +20,7 @@ const Edit: React.FC<EditProps> = ({}: EditProps) => {
         style={styles.InputStyles}
         value={name}
         onSubmitEditing={() => {
+          console.log(name);
           ls.setData('Name', name);
           setName('');
         }}
