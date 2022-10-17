@@ -7,24 +7,48 @@ import LocalStorage from '../../Helpers/LocalStorage';
 interface EditProps {}
 
 const Edit: React.FC<EditProps> = ({}: EditProps) => {
-  const [text, setText] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [gender, setGender] = React.useState('');
+  const [pronouns, setPronouns] = React.useState('');
+  const [status, setStatus] = React.useState('');
+
+
+
   const ls = new LocalStorage();
 
   return (
     <View style={styles.ViewStyle}>
       <TextInput
         style={styles.InputStyles}
-        value={text}
-        onSubmitEditing={() => {
-          ls.setData('Gender', text);
-          let j = ls.getData('Gender');
-          j.then(data => console.log(data));
-        }}
-        onChangeText={newText => {
-          setText(newText);
-        }}
+        value={name}
+        onSubmitEditing={() => {ls.setData('Name', name); setName('');}}
+        onChangeText={newText =>  setName(newText)}
+      />
+      <Text>Edit your Name!</Text>
+
+      <TextInput
+        style={styles.InputStyles}
+        value={gender}
+        onSubmitEditing={() => {ls.setData('Gender', gender); setGender('');}}
+        onChangeText={newText =>  setGender(newText)}
       />
       <Text>Edit your Gender!</Text>
+
+      <TextInput
+        style={styles.InputStyles}
+        value={pronouns}
+        onSubmitEditing={() => {ls.setData('Pronouns', pronouns); setPronouns('');}}
+        onChangeText={newText =>  setPronouns(newText)}
+      />
+      <Text>Edit your Pronouns!</Text>
+
+      <TextInput
+        style={styles.InputStyles}
+        value={status}
+        onSubmitEditing={() => {ls.setData('Status', status); setStatus('');}}
+        onChangeText={newText =>  setStatus(newText)}
+      />
+      <Text>Edit your Status!</Text>
     </View>
   );
 };

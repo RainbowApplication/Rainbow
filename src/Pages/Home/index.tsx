@@ -12,34 +12,36 @@ import * as React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Card from '../../Components/Card';
 import LocalStorage from '../../Helpers/LocalStorage';
-import { useIsFocused } from "@react-navigation/native";
-
+import {useIsFocused} from '@react-navigation/native';
+import * as getData from '../../Helpers/getData';
 
 // Methods
-async function getGender(ls: LocalStorage, setgender: any) {
-  let data = await ls.getData('Gender');
-  setgender(data);
-}
 
 const Home: () => JSX.Element = () => {
   // States and Variables
-  const [gender, setgender] = React.useState('Default'); // useEffect hook for
+  const [name, setname] = React.useState('Default');
+  const [gender, setgender] = React.useState('Default');
+  const [pronouns, setpronouns] = React.useState('Default');
+  const [status, setstatus] = React.useState('Default');
+
   const ls = new LocalStorage(); // Initializes Local Storage Helper
-  const isFocused = useIsFocused(); // Rerenders every focus
 
   // Code
 
-  getGender(ls, setgender);
+  useIsFocused(); // Rerenders every focus
+  getData.getGender(ls, setgender);
+  getData.getName(ls, setname);
+  getData.getPronouns(ls, setpronouns);
+  getData.getStatus(ls, setstatus);
 
 
-
-  // JSX  
+  // JSX
   return (
     <View style={styles.mainView}>
-      <Card header='Name' text='Jaden' />
-      <Card header='Gender' text={`${gender}`} />
-      <Card header='Pronouns' text='He/Him' />
-      <Card header='Status' text='Taken' />
+      <Card header="Name" text={`${name}`} />
+      <Card header="Gender" text={`${gender}`} />
+      <Card header="Pronouns" text={`${pronouns}`} />
+      <Card header="Status" text={`${status}`} />
     </View>
   );
 };
