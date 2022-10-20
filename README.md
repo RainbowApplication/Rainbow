@@ -6,6 +6,6 @@ It will send a notification with the user data when another person is nearby wit
 
 ## Todo
 <ol>
-  <li>Notification/Proximety System Bluetooth? NFC?</li>
+  <li>Notification/Proximety System (Bluetooth? NFC?)</li>
   <li>Themes</li>
 </ol>
