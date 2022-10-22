@@ -10,6 +10,7 @@
 
 import React from 'react';
 import 'react-native';
+import {View} from 'react-native';
 import Navigation from './Components/Navigation';
 
 const App: () => JSX.Element = () => {
